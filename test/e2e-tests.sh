@@ -68,15 +68,15 @@ smoke_test() {
 
   sleep 4 # Wait for the namespace to get initialized by kube-controller-manager
 
-  ./kn service create svc1 --no-wait --image image-registry.openshift-image-registry.svc:5000/local-images/helloworld -e TARGET=Knative -n $ns || fail_test
-  ./kn service create svc2 --no-wait --image image-registry.openshift-image-registry.svc:5000/local-images/helloworld -e TARGET=Knative -n $ns || fail_test
-  ./kn service create hello --image image-registry.openshift-image-registry.svc:5000/local-images/helloworld -e TARGET=Knative -n $ns || fail_test
+  ./kn service create svc1 --no-wait --image quay.io/multi-arch/knative-samples-helloworld-go:latest -e TARGET=Knative -n $ns || fail_test
+  ./kn service create svc2 --no-wait --image quay.io/multi-arch/knative-samples-helloworld-go:latest -e TARGET=Knative -n $ns || fail_test
+  ./kn service create hello --image quay.io/multi-arch/knative-samples-helloworld-go:latest -e TARGET=Knative -n $ns || fail_test
   ./kn service list hello -n $ns || fail_test
   ./kn service update hello --env TARGET=kn -n $ns || fail_test
   ./kn revision list hello -n $ns || fail_test
   ./kn service list -n $ns || fail_test
-  ./kn service create hello --force --image image-registry.openshift-image-registry.svc:5000/local-images/helloworld -e TARGET=Awesome -n $ns || fail_test
-  ./kn service create foo --force --image image-registry.openshift-image-registry.svc:5000/local-images/helloworld -e TARGET=foo -n $ns || fail_test
+  ./kn service create hello --force --image quay.io/multi-arch/knative-samples-helloworld-go:latest -e TARGET=Awesome -n $ns || fail_test
+  ./kn service create foo --force --image quay.io/multi-arch/knative-samples-helloworld-go:latest -e TARGET=foo -n $ns || fail_test
   ./kn revision list -n $ns || fail_test
   ./kn service list -n $ns || fail_test
   ./kn service describe hello -n $ns || fail_test

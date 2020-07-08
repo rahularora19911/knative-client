@@ -216,7 +216,7 @@ func withRevisionName(revName string) expectedServiceOption {
 func withAnnotations() expectedServiceOption {
 	return func(svc *servingv1.Service) {
 		svc.Spec.ConfigurationSpec.Template.ObjectMeta.Annotations = map[string]string{
-			"client.knative.dev/user-image": "image-registry.openshift-image-registry.svc:5000/local-images/helloworld",
+			"client.knative.dev/user-image": "quay.io/multi-arch/knative-samples-helloworld-go:latest",
 		}
 	}
 }

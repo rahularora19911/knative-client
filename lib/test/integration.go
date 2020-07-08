@@ -28,7 +28,7 @@ import (
 )
 
 const (
-	KnDefaultTestImage string        = "image-registry.openshift-image-registry.svc:5000/local-images/helloworld"
+	KnDefaultTestImage string        = "quay.io/multi-arch/knative-samples-helloworld-go:latest"
 	MaxRetries         int           = 10
 	RetrySleepDuration time.Duration = 5 * time.Second
 )
