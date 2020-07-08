@@ -8,7 +8,7 @@ that reads the environment variable `TARGET` and prints it as output.
 - **Create a service in the `default` namespace from an image**
 
 ```bash
-kn service create hello --image gcr.io/knative-samples/helloworld-go --env TARGET=Knative
+kn service create hello --image quay.io/multi-arch/knative-samples-helloworld-go --env TARGET=Knative
 
 Creating service 'hello' in namespace 'default':
 
@@ -68,7 +68,7 @@ Address:    http://hello.default.svc.cluster.local
 
 Revisions:
   100%  @latest (hello-nhbwv-2) [2] (50s)
-        Image:  gcr.io/knative-samples/helloworld-go (pinned to 5ea96b)
+        Image:  quay.io/multi-arch/knative-samples-helloworld-go (pinned to 8d9237)
 
 Conditions:
   OK TYPE                   AGE REASON

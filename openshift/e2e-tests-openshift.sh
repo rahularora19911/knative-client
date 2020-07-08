@@ -19,7 +19,7 @@ source $(dirname $0)/../vendor/knative.dev/test-infra/scripts/e2e-tests.sh
 
 set -x
 
-readonly KN_DEFAULT_TEST_IMAGE="gcr.io/knative-samples/helloworld-go"
+readonly KN_DEFAULT_TEST_IMAGE="image-registry.openshift-image-registry.svc:5000/local-images/helloworld"
 readonly SERVING_NAMESPACE="knative-serving"
 readonly SERVICEMESH_NAMESPACE="knative-serving-ingress"
 readonly E2E_TIMEOUT="60m"
